@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Подключение Font Awesome -->
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
   <style>
     body {
@@ -20,6 +20,28 @@
     }
     h1, h2 { color: #333; }
     a { text-decoration: none; }
+
+    /* Баннер */
+    .banner {
+      position: relative;
+      background-image: url('banner.jpg'); /* замените на вашу картинку */
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .banner-text {
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
 
     /* Меню */
     nav {
@@ -141,9 +163,12 @@
 </head>
 <body>
 
+<!-- Баннер -->
+<header class="banner">
+ </header>
+
 <!-- Меню навигации -->
 <nav>
-  <a href="#about">О услуге</a>
   <a href="#works">Примеры работ</a>
   <a href="#map">Где меня найти</a>
   <a href="#contacts">Контакты</a>
