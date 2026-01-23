@@ -3,72 +3,305 @@
 <head>
   <meta charset="UTF-8">
   <title>Прошивка приборной панели Лада Гранта и Калина 2 в Казани</title>
-  <meta name="description" content="Прошивка приборных панелей Лада Гранта и Калина 2 в Казани и пригороде. Активация отображения температуры двигателя и наружного воздуха. Заводские прошивки.">
+  <meta name="description" content="Прошивка приборных панелей Лада Гранта и Калина 2 в Казани и пригороде. Активация скрытых функций: отображение температуры двигателя и наружного воздуха. Работаем с заводскими прошивками, без вмешательства в двигатель. Предварительная запись, гарантия результата.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Основные стили */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      scroll-behavior: smooth; /* плавная прокрутка по ссылкам */
+    }
+    h1, h2 {
+      color: #333;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* Меню */
+    nav {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      padding: 5px 10px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      margin: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover { background: #0077cc; color: white; }
+
+    /* Анимация появления */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Слайдер */
+    .slider-container {
+      position: relative;
+      margin: 20px 0;
+    }
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding-bottom: 10px;
+    }
+    .slider img {
+      flex: 0 0 auto;
+      max-width: 90%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .slider img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .slider::-webkit-scrollbar { display: none; }
+    .slider { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Стрелки */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      background-color: rgba(0,0,0,0.3);
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+    .arrow-left { left: -10px; }
+    .arrow-right { right: -10px; }
+
+    /* Точки под слайдером */
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .dot.active { background-color: #0077cc; }
+
+    /* Карта */
+    .map-container {
+      margin: 20px 0;
+      height: 400px;
+    }
+
+    /* Фиксированная кнопка связи */
+    .contact-fixed {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact-fixed a {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .contact-fixed a:hover { transform: scale(1.1); }
+
+    @media (max-width: 600px) {
+      body { padding: 5px; max-width: 95%; }
+      .slider img { max-width: 95%; }
+      .arrow { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Прошивка приборных панелей Лада Гранта и Калина 2 в Казани</h1>
+<!-- Меню навигации -->
+<nav>
+  <a href="#about">О услуге</a>
+  <a href="#works">Примеры работ</a>
+  <a href="#map">Где меня найти</a>
+  <a href="#contacts">Контакты</a>
+</nav>
 
-<p>
+<h1 class="fade-in" id="about">Прошивка приборных панелей Лада Гранта и Калина 2 в Казани</h1>
+
+<p class="fade-in">
 Выполняю прошивку приборных панелей автомобилей <strong>LADA Granta</strong> и
 <strong>LADA Kalina 2</strong> в <strong>Казани и пригороде</strong>.
 Работаю с заводскими прошивками, предусмотренными производителем для других комплектаций.
 </p>
 
-<h2>Что активируется</h2>
-<ul>
+<h2 class="fade-in">Что активируется</h2>
+<ul class="fade-in">
   <li>Отображение температуры двигателя (ДТОЖ)</li>
   <li>Отображение температуры наружного воздуха (ДТНВ)</li>
 </ul>
 
-<h2>Как проходит работа</h2>
-<ul>
-  <li>Проверка ревизии и текущей прошивки приборной панели</li>
+<h2 class="fade-in">Как проходит работа</h2>
+<ul class="fade-in">
+  <li>Проверка ревизии и текущей прошивки панели</li>
   <li>Резервное копирование прошивки и дампа данных</li>
   <li>Прошивка и установка панели</li>
   <li>Проверка результата при вас</li>
 </ul>
 
-<p>
-Работа занимает <strong>20–30 минут</strong> со снятием и установкой панели.
-Приём по предварительной записи.
-</p>
+<p class="fade-in">Работа занимает <strong>20–30 минут</strong> со снятием и установкой панели. Приём по предварительной записи.</p>
 
-<h2>Важно знать</h2>
-<ul>
+<h2 class="fade-in">Важно знать</h2>
+<ul class="fade-in">
   <li>Используются только заводские прошивки</li>
   <li>Не изменяется конструкция ТС</li>
   <li>Не вмешиваюсь в систему управления двигателем</li>
   <li>Работа не связана с одометром и экологическими нормами</li>
 </ul>
 
-<h2>Поддерживаемые приборные панели</h2>
-<ul>
+<h2 class="fade-in">Поддерживаемые панели</h2>
+<ul class="fade-in">
   <li>LADA Granta 2190 — версии 076, 087, 090 и выше (не подходит для FL)</li>
   <li>LADA Kalina 2192 — версии от 007</li>
 </ul>
 
-<p>
-❌ Не прошиваю пересвеченные, кастомные панели и панели от FL.
-</p>
+<p class="fade-in">❌ Не прошиваю пересвеченные, кастомные панели и панели от FL.</p>
 
-<h2>Примеры работ</h2>
-<img src="granta-kalina.jpg" alt="Температура ОЖ на приборной панели">
-<img src="granta-panel.jpg" alt="Прошивка приборной панели Лада Гранта">
-<img src="kalina-panel2.jpg" alt="Температура на приборке">
-<img src="granta-panel2.jpg" alt="Прошивка приборной панели Лада Калина 2">
-<img src="kalina-panel.jpg" alt="Отображение температуры двигателя">
-<img src="kalina-granta.jpg" alt="Температура ОЖ на приборной панели">
+<h2 class="fade-in" id="works">Примеры работ</h2>
+<div class="slider-container fade-in">
+  <div class="arrow arrow-left" onclick="slide(-1)">&#10094;</div>
+  <div class="slider" id="slider">
+    <img src="granta-kalina.jpg" alt="Температура ОЖ на приборной панели">
+    <img src="granta-panel.jpg" alt="Прошивка приборной панели Лада Гранта">
+    <img src="kalina-panel2.jpg" alt="Температура на приборке">
+    <img src="granta-panel2.jpg" alt="Прошивка приборной панели Лада Калина 2">
+    <img src="kalina-panel.jpg" alt="Отображение температуры двигателя">
+    <img src="kalina-granta.jpg" alt="Температура ОЖ на приборной панели">
+  </div>
+  <div class="arrow arrow-right" onclick="slide(1)">&#10095;</div>
+</div>
+<div class="dots" id="dots"></div>
 
+<h2 class="fade-in" id="map">Где меня найти</h2>
+<div class="map-container fade-in">
+  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f044036a85a5befab03a7949c63fdf3c04d407da222b42edd6b7d006877f6e2&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+</div>
 
-
-<h2>Контакты</h2>
-<p>
-📍 Казань и пригород<br>
+<h2 class="fade-in" id="contacts">Контакты</h2>
+<p class="fade-in">
 📞 <a href="tel:+79625754365">+7 962 575-43-65</a><br>
-💬 <a href="https://t.me/ladafw">Telegram</a>
+💬 <a href="https://t.me/ladafw" target="_blank">Telegram</a>
 </p>
+
+<div class="contact-fixed">
+  <a href="tel:+79625754365" title="Позвонить">📞</a>
+  <a href="https://t.me/ladafw" target="_blank" title="Telegram">💬</a>
+</div>
+
+<script>
+  // Анимация появления текста при скролле
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.1 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
+
+  // Слайдер и точки
+  const slider = document.getElementById('slider');
+  const dotsContainer = document.getElementById('dots');
+  const images = slider.querySelectorAll('img');
+  let currentIndex = 0;
+
+  images.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if(i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.dot');
+
+  function slide(direction) {
+    const width = slider.clientWidth;
+    slider.scrollBy({ left: direction * width, behavior: 'smooth' });
+    setTimeout(updateDots, 300);
+  }
+
+  function goToSlide(index) {
+    slider.scrollLeft = images[index].offsetLeft - slider.offsetLeft;
+    currentIndex = index;
+    updateDots();
+  }
+
+  function updateDots() {
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+    images.forEach((img, i) => {
+      const distance = Math.abs(slider.scrollLeft - (img.offsetLeft - slider.offsetLeft));
+      if(distance < closestDistance){
+        closestDistance = distance;
+        closestIndex = i;
+      }
+    });
+    currentIndex = closestIndex;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[currentIndex].classList.add('active');
+  }
+
+  slider.addEventListener('scroll', updateDots);
+
+  // Автопрокрутка слайдера каждые 5 секунд
+  setInterval(() => {
+    let next = currentIndex + 1;
+    if(next >= images.length) next = 0;
+    goToSlide(next);
+  }, 5000);
+</script>
 
 </body>
 </html>
