@@ -1,191 +1,180 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Прошивка приборной панели Лада Гранта и Калина 2 в Казани</title>
-  <meta name="description" content="Прошивка приборных панелей Лада Гранта и Калина 2 в Казани и пригороде. Активация скрытых функций: отображение температуры двигателя и наружного воздуха. Работаем с заводскими прошивками, без вмешательства в двигатель. Предварительная запись, гарантия результата.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Прошивка и настройка приборных панелей LADA в Казани</title>
 
-  <!-- Подключение Font Awesome -->
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<meta name="description" content="Прошивка приборных панелей Лада Гранта, Калина 2, Granta FL и Lada Vesta в Казани. Активация отображения температуры двигателя, дополнительных функций БК и круиз-контроля. Работаю с заводскими решениями.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 10px;
-      scroll-behavior: smooth;
-    }
-    h1, h2 { color: #333; }
-    a { text-decoration: none; }
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
-    /* Баннер */
-    .banner {
-      position: relative;
-      background-image: url('banner.jpg'); /* замените на вашу картинку */
-      background-size: cover;
-      background-position: center;
-      height: 250px;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .banner-text {
-      text-align: center;
-      background: rgba(0,0,0,0.4);
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
+<style>
+body{
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+  line-height: 1.6;
 
-    /* Меню */
-    nav {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      padding: 5px 10px;
-      background: white;
-      border: 1px solid black;
-      border-radius: 5px;
-      margin: 5px;
-      color: black;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav a:hover { background: black; color: white; }
+  /* запрет копирования */
+  user-select: none;
+}
 
-    /* Анимация появления */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+.allow-copy, .allow-copy *{
+  user-select: text !important;
+}
 
-    /* Слайдер */
-    .slider-container { position: relative; margin: 20px 0; }
-    .slider {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 10px;
-      padding-bottom: 10px;
-    }
-    .slider img {
-      flex: 0 0 auto;
-      max-width: 90%;
-      height: auto;
-      border-radius: 5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .slider img:hover { transform: scale(1.03); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .slider::-webkit-scrollbar { display: none; }
-    .slider { -ms-overflow-style: none; scrollbar-width: none; }
+h1,h2,h3{color:#222}
+a{text-decoration:none;color:#000}
 
-    /* Стрелки */
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2em;
-      background-color: rgba(0,0,0,0.3);
-      color: white;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      text-align: center;
-      line-height: 40px;
-      cursor: pointer;
-      user-select: none;
-      z-index: 10;
-    }
-    .arrow-left { left: -10px; }
-    .arrow-right { right: -10px; }
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.8s;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:none;
+}
 
-    /* Точки под слайдером */
-    .dots { text-align: center; margin-top: 10px; }
-    .dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin: 0 5px;
-      background-color: #bbb;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .dot.active { background-color: #000; }
+/* Баннер */
+.banner{
+  background:url("banner.jpg") center/cover no-repeat;
+  height:240px;
+  border-radius:6px;
+  margin-bottom:15px;
+}
 
-    /* Карта */
-    .map-container { margin: 20px 0; height: 400px; }
+/* Меню */
+nav{
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+nav a{
+  border:1px solid #000;
+  padding:6px 12px;
+  border-radius:6px;
+  margin:5px;
+}
+nav a:hover{
+  background:#000;
+  color:#fff;
+}
 
-    /* Фиксированные кнопки связи с Font Awesome */
-    .contact-fixed {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .contact-fixed a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 50px;
-      height: 50px;
-      background-color: black;
-      color: white;
-      border-radius: 50%;
-      font-size: 1.5em;
-      text-decoration: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .contact-fixed a:hover { transform: scale(1.1); }
+/* Слайдер */
+.slider-container{
+  position:relative;
+  margin:20px 0;
+}
+.slider{
+  display:flex;
+  overflow-x:auto;
+  gap:10px;
+  scroll-behavior: smooth;
+}
+.slider img{
+  max-width:85%;
+  border-radius:6px;
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+  cursor:pointer;
+}
+.slider::-webkit-scrollbar{display:none}
 
-    @media (max-width: 600px) {
-      body { padding: 5px; max-width: 95%; }
-      .slider img { max-width: 95%; }
-      .arrow { display: none; }
-    }
-  </style>
+/* Стрелки */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:2em;
+  background:rgba(0,0,0,0.3);
+  color:white;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  text-align:center;
+  line-height:40px;
+  cursor:pointer;
+  user-select:none;
+  z-index:10;
+}
+.arrow-left{ left:-10px; }
+.arrow-right{ right:-10px; }
+
+/* Точки */
+.dots{ text-align:center; margin-top:10px; }
+.dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  margin:0 5px;
+  background-color:#bbb;
+  border-radius:50%;
+  cursor:pointer;
+  transition:0.3s;
+}
+.dot.active{ background-color:#000; }
+/* Карта */
+.map-container{
+  height:400px;
+  margin:25px 0;
+}
+
+/* Контакты */
+.contact-fixed{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.contact-fixed a{
+  width:50px;
+  height:50px;
+  background:#000;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+/* Мобилки */
+@media(max-width:600px){
+  body{padding:5px}
+  .slider img{max-width:95%}
+}
+</style>
 </head>
+
 <body>
 
-<!-- Баннер -->
-<header class="banner">
- </header>
+<header class="banner"></header>
 
-<!-- Меню навигации -->
 <nav>
-  <a href="#works">Примеры работ</a>
-  <a href="#map">Где меня найти</a>
-  <a href="#contacts">Контакты</a>
+  <a href="#granta">Granta / Kalina 2</a>
+  <a href="#granta-fl">Granta FL</a>
+  <a href="#vesta">Vesta</a>
 </nav>
 
-<h1 class="fade-in" id="about">Прошивка приборных панелей Лада Гранта и Калина 2 в Казани</h1>
+<h1 class="fade-in">Прошивка и настройка приборных панелей LADA в Казани</h1>
 
 <p class="fade-in">
-Выполняю прошивку приборных панелей автомобилей <strong>LADA Granta</strong> и
-<strong>LADA Kalina 2</strong> в <strong>Казани и пригороде</strong>.
-Работаю с заводскими прошивками, предусмотренными производителем для других комплектаций.
+Активация заводских функций приборных панелей автомобилей
+LADA в Казани и пригороде. Работаю аккуратно, без вмешательства в систему управления двигателем.
 </p>
 
-<h2 class="fade-in">Что активируется</h2>
+<!-- GRANTA / KALINA -->
+<h2 class="fade-in" id="granta">Granta / Kalina 2 — что активируется</h2>
+
 <ul class="fade-in">
   <li>Отображение температуры двигателя (ДТОЖ)</li>
   <li>Отображение температуры наружного воздуха (ДТНВ)</li>
+    <li>Дополнительные статистические данные (такие как время в пути, средняя скорость, расход топлива за поездку)</li>
 </ul>
 
 <h2 class="fade-in">Как проходит работа</h2>
@@ -193,31 +182,32 @@
   <li>Проверка ревизии и текущей прошивки панели</li>
   <li>Резервное копирование прошивки и дампа данных</li>
   <li>Прошивка и установка панели</li>
-  <li>Проверка результата при вас</li>
+  <li>Проверка результата при Вас</li>
 </ul>
 
-<p class="fade-in">Работа занимает <strong>20–30 минут</strong> со снятием и установкой панели. Приём по предварительной записи.</p>
+<p class="fade-in">Работа занимает <strong>20 – 30 минут</strong> под ключ со снятием, установкой панели, бэкапом данных и проверкой результата</p>
 
 <h2 class="fade-in">Важно знать</h2>
 <ul class="fade-in">
   <li>Используются только заводские прошивки</li>
-  <li>Не изменяется конструкция ТС</li>
-  <li>Не вмешиваюсь в систему управления двигателем</li>
+  <li>Не изменяется конструкция и электрика ТС</li>
+  <li>Не вмешиваюсь в систему управления двигателем ЭБУ</li>
   <li>Работа не связана с одометром и экологическими нормами</li>
 </ul>
 
 <h2 class="fade-in">Поддерживаемые панели</h2>
 <ul class="fade-in">
-  <li>LADA Granta 2190 — версии 076, 087, 090 и выше (не подходит для FL)</li>
+  <li>LADA Granta 2190 — версии 053, 060, 076, 087, 090 и выше (не подходит для FL)</li>
   <li>LADA Kalina 2192 — версии от 007</li>
 </ul>
 
 <p class="fade-in">❌ Не прошиваю пересвеченные, кастомные панели и панели от FL.</p>
 
-<h2 class="fade-in" id="works">Примеры работ</h2>
+
+<h2 class="fade-in">Примеры работ</h2>
 <div class="slider-container fade-in">
-  <div class="arrow arrow-left" onclick="slide(-1)">&#10094;</div>
-  <div class="slider" id="slider">
+  <div class="arrow arrow-left">&#10094;</div>
+  <div class="slider">
     <img src="granta-kalina.jpg" alt="Температура ОЖ на приборной панели">
     <img src="granta-panel.jpg" alt="Прошивка приборной панели Лада Гранта">
     <img src="kalina-panel2.jpg" alt="Температура на приборке">
@@ -225,92 +215,226 @@
     <img src="kalina-panel.jpg" alt="Отображение температуры двигателя">
     <img src="kalina-granta.jpg" alt="Температура ОЖ на приборной панели">
   </div>
-  <div class="arrow arrow-right" onclick="slide(1)">&#10095;</div>
-</div>
-<div class="dots" id="dots"></div>
-
-<h2 class="fade-in" id="map">Где меня найти</h2>
-<div class="map-container fade-in">
-  <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f044036a85a5befab03a7949c63fdf3c04d407da222b42edd6b7d006877f6e2&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+  <div class="arrow arrow-right">&#10095;</div>
+  <div class="dots"></div>
 </div>
 
-<h2 class="fade-in" id="contacts">Контакты</h2>
+
+<!-- GRANTA FL -->
+<h2 class="fade-in" id="granta-fl">Granta FL — активация круиз-контроля</h2>
+
 <p class="fade-in">
-<i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+79625754365">+7 962 575-43-65</a><br>
-<i class="fa fa-telegram" aria-hidden="true"></i> <a href="https://t.me/ladafw" target="_blank">Telegram</a>
+Сброс приборной панели Лада Granta FL для активации круиз-контроля и ограничителя скорости
 </p>
 
-<!-- Фиксированные кнопки с Font Awesome -->
-<div class="contact-fixed">
-  <a href="tel:+79625754365" title="Позвонить"><i class="fa fa-phone" aria-hidden="true"></i></a>
-  <a href="https://t.me/ladafw" target="_blank" title="Telegram"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+<h3 class="fade-in">Внимание</h3>
+<ul class="fade-in">
+  <li>Авто должно быть с ABS либо предварительно прошит ЭБУ</li>
+  <li>ЭБУ должен поддерживать функции круиз-контроля</li>
+  <li>Необходим установленный подрулевой переключатель 1119-3709340-20</li>
+  <li>Выполняю только сброс панели для определения подрулевого и активации круиз-контроля (без вмешательства в ЭБУ)</li>
+</ul>
+
+<p class="fade-in">
+Вы платите только за результат: панель распознаёт переключатель,
+реагирует на кнопки, настройки БК переключаются, при тесте панели отображаются значки круиз-контроля и ограничителя скорости.
+</p>
+
+<p class="fade-in">
+Заводом выпускались разные версии панелей и ЭБУ.
+На части автомобилей требуется предварительная активация функции круиз-контроля на уровне ЭБУ
+(особенно 2022 – 2023 г.в.).
+</p>
+
+<h2 class="fade-in">Примеры работ</h2>
+<div class="slider-container fade-in">
+  <div class="arrow arrow-left">&#10094;</div>
+  <div class="slider">
+    <img src="grantafl1.jpg" alt="Активация круиза Гранта ФЛ">
+    <img src="grantafl2.jpg" alt="Круиз-контроль Granta FL">
+    <img src="grantafl3.jpg" alt="Сброс приборки Гранта ФЛ">
+    <img src="grantafl4.jpg" alt="Сброс приборной панели Granta FL">
+  </div>
+  <div class="arrow arrow-right">&#10095;</div>
+  <div class="dots"></div>
 </div>
 
-<script>
-  // Анимация появления текста
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = { threshold: 0.1 };
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
 
-  // Слайдер и точки
-  const slider = document.getElementById('slider');
-  const dotsContainer = document.getElementById('dots');
+<!-- VESTA -->
+<h2 class="fade-in" id="vesta">LADA Vesta — реальная температура двигателя</h2>
+
+<p class="fade-in">
+Включение отображения реальной температуры двигателя
+на приборной панели Lada Vesta 1G (на седан и универсал SW с завода стрелка работает ступенчато и показывает только 90°C).
+</p>
+
+<ul class="fade-in">
+  <li>Активация заводской функции линейного отображения реальной температуры двигателя
+</li>
+  <li>Настройка штатных функций (таких как отключение авто очистки стеклоочистителем при включении задней передачи)</li>
+</ul>
+
+<h3 class="fade-in">Внимание</h3>
+<ul class="fade-in">
+  <li>Только Vesta 1G (2015 – 2020), для Vesta NG не подходит</li>
+  <li>Без прошивки и без съёма панели</li>
+  <li>Платите только за результат</li>
+</ul>
+
+<h2 class="fade-in">Примеры работ</h2>
+<div class="slider-container fade-in">
+  <div class="arrow arrow-left">&#10094;</div>
+  <div class="slider">
+    <img src="vesta1.jpg" alt="Реальная температура ОЖ на приборной панели">
+    <img src="vesta2.jpg" alt="Веста температура на приборке">
+    <img src="vesta3.jpg" alt="Vesta активация скрытых функций">
+  </div>
+  <div class="arrow arrow-right">&#10095;</div>
+  <div class="dots"></div>
+</div>
+
+
+<!-- DIAG -->
+<h2 class="fade-in" id="diag">Чтение ошибок Check Engine </h2>
+<p class="fade-in">
+Быстрая диагностика ELM OBD2 сканером </p>
+<ul class="fade-in">
+  <li>Лада Гранта / Lada Granta 2190</li>
+  <li>Лада Калина 2 / Lada Kalina 2 2192</li>
+  <li>Лада Веста 1G / Lada Vesta (2015 - 2020)</li>
+  <li>Платите только за результат</li>
+</ul>
+
+
+<h2 class="fade-in">Отзывы клиентов</h2>
+<div class="slider-container fade-in">
+  <div class="arrow arrow-left">&#10094;</div>
+  <div class="slider">
+    <img src="review1.jpg" alt="Активация ТОЖ">
+    <img src="review2.jpg" alt="Отображение температуры">
+    <img src="review3.jpg" alt="Температура на панели">
+    <img src="review4.jpg" alt="Прошивка Лада Калина 2">
+    <img src="review5.jpg" alt="Прошивка Лада Гранта">
+    <img src="review6.jpg" alt="Температура ОЖ">
+   <img src="review7.jpg" alt="Бэкап данных приборки">
+   <img src="review8.jpg" alt="Сброс ошибок БУ панели">
+   <img src="review9.jpg" alt="Сброс ошибок БУ приборки">
+   <img src="review10.jpg" alt="Сброс ошибок на БУ приборной панели">
+   <img src="review11.jpg" alt="Активация температуры двигателя">
+  </div>
+  <div class="arrow arrow-right">&#10095;</div>
+  <div class="dots"></div>
+</div>
+
+
+<!-- КАРТА -->
+<h2 class="fade-in">Где меня найти</h2>
+<div class="map-container fade-in">
+<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7f044036a85a5befab03a7949c63fdf3c04d407da222b42edd6b7d006877f6e2&amp;source=constructor"
+width="100%" height="100%" frameborder="0"></iframe>
+</div>
+
+<!-- КОНТАКТЫ -->
+<h2 class="fade-in">Контакты</h2>
+<p class="fade-in allow-copy">
+<i class="fa fa-phone"></i>
+<a href="tel:+79625754365">+7 962 575-43-65</a><br>
+<i class="fa fa-telegram"></i>
+<a href="https://t.me/ladafw" target="_blank">Telegram</a>
+</p>
+
+<div class="contact-fixed allow-copy">
+<a href="tel:+79625754365"><i class="fa fa-phone"></i></a>
+<a href="https://t.me/ladafw" target="_blank"><i class="fa fa-telegram"></i></a>
+</div>
+
+<footer style="text-align:center;margin:40px 0;color:#666;">
+г. Казань, 2018 – 2026
+</footer>
+
+<script>
+/* анимация */
+const f=document.querySelectorAll('.fade-in');
+const o=new IntersectionObserver(e=>{
+e.forEach(x=>{
+if(x.isIntersecting){
+x.target.classList.add('visible');
+o.unobserve(x.target);
+}});
+});
+f.forEach(el=>o.observe(el));
+
+/* защита */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{
+if((e.ctrlKey && ['c','u','s','a'].includes(e.key.toLowerCase())) || e.key==='F12'){
+e.preventDefault();
+}});
+</script>
+
+<script>
+// Слайдер для всех блоков
+document.querySelectorAll('.slider-container').forEach((container)=>{
+  const slider = container.querySelector('.slider');
+  const dotsContainer = container.querySelector('.dots');
   const images = slider.querySelectorAll('img');
   let currentIndex = 0;
 
-  images.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    if(i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
-  });
+  // создаем точки
+  if(dotsContainer){
+    images.forEach((_,i)=>{
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if(i===0) dot.classList.add('active');
+      dot.addEventListener('click',()=> goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+  }
+  const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
 
-  const dots = dotsContainer.querySelectorAll('.dot');
-
-  function slide(direction) {
+  function slide(direction){
     const width = slider.clientWidth;
-    slider.scrollBy({ left: direction * width, behavior: 'smooth' });
-    setTimeout(updateDots, 300);
+    slider.scrollBy({left:direction*width, behavior:'smooth'});
+    setTimeout(updateDots,300);
   }
 
-  function goToSlide(index) {
+  function goToSlide(index){
     slider.scrollLeft = images[index].offsetLeft - slider.offsetLeft;
     currentIndex = index;
     updateDots();
   }
 
-  function updateDots() {
+  function updateDots(){
+    if(!dots.length) return;
     let closestIndex = 0;
     let closestDistance = Infinity;
-    images.forEach((img, i) => {
-      const distance = Math.abs(slider.scrollLeft - (img.offsetLeft - slider.offsetLeft));
-      if(distance < closestDistance){
+    images.forEach((img,i)=>{
+      const distance = Math.abs(slider.scrollLeft-(img.offsetLeft - slider.offsetLeft));
+      if(distance<closestDistance){
         closestDistance = distance;
         closestIndex = i;
       }
     });
     currentIndex = closestIndex;
-    dots.forEach(d => d.classList.remove('active'));
+    dots.forEach(d=>d.classList.remove('active'));
     dots[currentIndex].classList.add('active');
   }
 
   slider.addEventListener('scroll', updateDots);
 
-  // Автопрокрутка слайдера каждые 5 секунд
-  setInterval(() => {
-    let next = currentIndex + 1;
-    if(next >= images.length) next = 0;
+  // Стрелки
+  const left = container.querySelector('.arrow-left');
+  const right = container.querySelector('.arrow-right');
+  if(left) left.addEventListener('click',()=>slide(-1));
+  if(right) right.addEventListener('click',()=>slide(1));
+
+  // Автопрокрутка каждые 5 секунд
+  setInterval(()=>{
+    let next = currentIndex+1;
+    if(next>=images.length) next=0;
     goToSlide(next);
-  }, 5000);
+  },5000);
+});
 </script>
 
 </body>
